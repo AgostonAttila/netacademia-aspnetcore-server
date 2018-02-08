@@ -1,0 +1,35 @@
+﻿@model FamilyPhotos.Models.PhotoModel
+
+<div class="page-header">
+    <h2>Új kép létrehozása</h2>
+</div>
+
+@using (Html.BeginForm("Create", "Photo", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+{
+    <div>
+      @Html.LabelFor(m => m.Title)
+      @Html.EditorFor(m => m.Title)
+    </div>
+    <div>
+      @Html.LabelFor(m => m.Description)
+      @Html.EditorFor(m => m.Description)
+    </div>
+}
+    <div>
+        @Html.LabelFor(m => m.PictureFromBrowser)
+        <input type="file" name="Picture"  />
+    </div>
+
+    <div>
+        <input type="submit"  value="Létrehozás" />
+    </div>
+
+
+@*@using (Html.BeginForm("Create", "Photo", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+    {
+    @Html.EditorForModel()
+    <div class="col-md-offset-2">
+        @Html.ActionLink("Vissza a képek listájára", "Index", null, htmlAttributes: new { @class = "btn btn-default" })
+        <input type="submit" value="Létrehozás" class="btn btn-primary" />
+    </div>
+    }*@
